@@ -19,11 +19,6 @@ else
     exit 1
 fi
 
-echo Base tag: ${BASE_TAG}
-echo Version: ${OPERATOR_VERSION}
-echo Tag: ${TAG}
-exit 1
-
 if [ "${GH_WRITE_TOKEN}x" == "x" ]; then
     echo "The GitHub write token isn't set. Skipping release process."
     exit 1
