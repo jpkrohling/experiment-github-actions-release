@@ -1,0 +1,15 @@
+name: "Release"
+on:
+  push:
+    tags:
+    - 'release/v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: "perform the release"
+      env:
+        GH_WRITE_TOKEN: ${{ secrets. GH_WRITE_TOKEN }}
+      run: ./.ci/release.sh

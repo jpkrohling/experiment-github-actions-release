@@ -1,0 +1,10 @@
+name: "CI Workflow"
+on: [push, pull_request]
+
+jobs:
+  basic-checks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: "basic checks"
+      run: ./.ci/script.sh
