@@ -38,6 +38,6 @@ else
 
     git commit -qm "Release ${TAG}"
     git tag ${TAG}
-    git push --repo=https://${GITHUB_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git --tags
-    git push https://${GITHUB_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git refs/tags/${TAG}:master
+    sudo git push --repo=https://${GITHUB_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git --tags
+    sudo git push https://${GITHUB_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git refs/tags/${TAG}:master
 fi
