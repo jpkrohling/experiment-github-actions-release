@@ -19,7 +19,7 @@ else
     exit 1
 fi
 
-if [ "${GITHUB_TOKEN}x" == "x" ]; then
+if [ "${GH_WRITE_TOKEN}x" == "x" ]; then
     echo "The GitHub write token isn't set. Skipping release process."
     exit 1
 fi
@@ -38,6 +38,6 @@ else
 
     git commit -qm "Release ${TAG}"
     git tag ${TAG}
-    sudo git push --repo=https://${GITHUB_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git --tags
-    sudo git push https://${GITHUB_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git refs/tags/${TAG}:master
+    git push --repo=https://${GH_WRITE_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git --tags
+    git push https://${GH_WRITE_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git refs/tags/${TAG}:master
 fi
