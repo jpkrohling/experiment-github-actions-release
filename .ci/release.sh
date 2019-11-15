@@ -33,10 +33,7 @@ if [[ $? == 0 ]]; then
 else
     git add experiment.version
 
-    git config user.email "juraci.experiment@kroehling.de"
-    git config user.name "Experiment Release"
-
-    git commit -qm "Release ${TAG}"
+    git commit -qm "Release ${TAG}" --author "Experiment Release <juraci.experiment@kroehling.de>"
     git tag ${TAG}
     git push --repo=https://${GH_WRITE_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git --tags
     git push https://${GH_WRITE_TOKEN}@github.com/jpkrohling/experiment-github-actions-release.git refs/tags/${TAG}:master
